@@ -3,11 +3,28 @@
 
 <html lang="ca">
 <head>
+      <!-- Conté la informació pel programador i és obligatori la secció head-->
     <meta charset="UTF-8">
+      <!-- És el document html, escrit en català i amb un conjunt de conectors de caràcters UTF-8 perquè accepti els accens i ç.-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suma de Vectors Nàutics: Vaixell, Vent i Corrent</title>
     <script>
+        // Les barres inclinades són comentaris de javascript aquest codi
+        // que hi ha entre script és un llenguatge diferent a html, es javascript.
+        /*
+        comentari multilínia
+        a sota tenim un codi javascript de configuració de mathjax, que permet renderitzar (visualitzar bé)
+        les fòrmules matemàtiques en una pàgina web. Mathjax utilitza dos tipus de llenguatges matemàtics:
+        TeX/LaTeX i MathML, TeX es pronuncia Tech i LaTeX significa Lamport que és el cognom de la persona que va modificar TeX per fer-lo més,
+        MathML es un llenguatge més modern semblant al HTML, ML significa Markup Language, llenguatge de marques. MathML és molt semblant a HTML, però es més llarg que LaTeX.
+        */
+        
         window.MathJax = {
+            /* Crea una variable global anomenada window.MathJax que és carregarà quan es carregui la pàgina web al principi
+             i farà que quan tenim les fórmules en línia (InlineMath) és a dir text normal i una fórmula a la mateixa línia hem d'escriure obligatoriament al principi 
+            un o dos dólars ($). Pot ser a la mateixa línia o en el mateix paràgraf, sense salts de línies ni centrats.
+            */
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
             svg: { fontCache: 'global' }
         };
