@@ -21,7 +21,8 @@
         */
         
         window.MathJax = {
-            /* Crea una variable global anomenada window.MathJax que és carregarà quan es carregui la pàgina web al principi
+            /* Mathjax es una biblioteca de javascript que serveix per escriure fórmules matemàtiques
+            Crea una variable global anomenada window.MathJax que és carregarà quan es carregui la pàgina web al principi
              i farà que quan tenim les fórmules en línia (InlineMath) és a dir text normal i una fórmula a la mateixa línia hem d'escriure obligatoriament al principi 
             un o dos dólars ($). Pot ser a la mateixa línia o en el mateix paràgraf, sense salts de línies ni centrats.
             */
@@ -29,7 +30,7 @@
             svg: { fontCache: 'global' }
         };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
         h2 { color: #333; }
