@@ -17,14 +17,21 @@
         a sota tenim un codi javascript de configuració de mathjax, que permet renderitzar (visualitzar bé)
         les fòrmules matemàtiques en una pàgina web. Mathjax utilitza dos tipus de llenguatges matemàtics:
         TeX/LaTeX i MathML, TeX es pronuncia Tech i LaTeX significa Lamport que és el cognom de la persona que va modificar TeX per fer-lo més,
-        MathML es un llenguatge més modern semblant al HTML, ML significa Markup Language, llenguatge de marques. MathML és molt semblant a HTML, però es més llarg que LaTeX.
+        MathML es un llenguatge més modern semblant al LaTeX, però més llarg, ML significa Markup Language, llenguatge de marques. MathML és molt semblant a HTML (Hyper Text Markup Language). 
+        S'utilitza LaTeX per escriure fórmules ràpidament i amb qualitat. Fa servir símbols com $ o \\ per indicar el seu ús. 
+        Ex: <p>
+        When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+  \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+  </p> <-- Equació de segón grau. Ne significa non equal, ^ elevat, pm plus minus, sqrt square root.
+  
         */
         
         window.MathJax = {
             /* Mathjax es una biblioteca de javascript que serveix per escriure fórmules matemàtiques
             Crea una variable global anomenada window.MathJax que és carregarà quan es carregui la pàgina web al principi
              i farà que quan tenim les fórmules en línia (InlineMath) és a dir text normal i una fórmula a la mateixa línia hem d'escriure obligatoriament al principi 
-            un o dos dólars ($). Pot ser a la mateixa línia o en el mateix paràgraf, sense salts de línies ni centrats.
+            un o dos dólars ($). Pot ser a la mateixa línia o en el mateix paràgraf, sense salts de línies ni centrats. InlineMath comprova que quan hi hagin $ o \ sigui MathJax a la mateix línia.
+            svg (Vector gràfic escalable) fa que els valors dels vectors escalin per fer que les imatges i les formules no es pixelin. 
             */
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
             svg: { fontCache: 'global' }
