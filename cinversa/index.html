@@ -80,14 +80,14 @@
     <input type="number" id="a2" value="0.5" step="0.1"><br><br>
 
 
-    <label for="q1">Angle del primer braç (q₁, en graus):</label>
+    <label for="x">Angle del primer braç (x, en graus):</label>
 
-    <input type="number" id="q1" value="45" step="0.1"><br><br>
+    <input type="number" id="x" value="45" step="0.1"><br><br>
 
 
-    <label for="q2">Angle del segon braç (q₂, en graus):</label>
+    <label for="y">Angle del segon braç (y, en graus):</label>
 
-    <input type="number" id="q2" value="30" step="0.1"><br><br>
+    <input type="number" id="y" value="30" step="0.1"><br><br>
 
 
     <button onclick="calculatePosition()">Calcula la posició</button>
@@ -109,13 +109,13 @@ function calculatePosition() {
 
   let a2 = parseFloat(document.getElementById('a2').value);
 
-  let q1_deg = parseFloat(document.getElementById('q1').value); // Grados
+  let x_deg = parseFloat(document.getElementById('x').value); // Grados
 
-  let q2_deg = parseFloat(document.getElementById('q2').value); // Grados
+  let y_deg = parseFloat(document.getElementById('y').value); // Grados
 
-  let q1 = q1_deg * Math.PI / 180; // Convertir graus a radians
+  let x = x_deg * Math.PI / 180; // Convertir graus a radians
 
-  let q2 = q2_deg * Math.PI / 180; // Convertir graus a radians
+  let y = y_deg * Math.PI / 180; // Convertir graus a radians
 
 
   // **Mostrar els contenidors de sortida**
@@ -138,31 +138,31 @@ function calculatePosition() {
 
   output += "<div class='equation'>Substituïm els valors:</div>";
 
-  output += `<div class='equation'>\\[ x = ${a1} \\cos(${q1_deg}°) + ${a2} \\cos(${q1_deg}° + ${q2_deg}°) \\]</div>`;
+  output += `<div class='equation'>\\[ x = ${a1} \\cos(${x_deg}°) + ${a2} \\cos(${x_deg}° + ${y_deg}°) \\]</div>`;
 
-  output += `<div class='equation'>\\[ y = ${a1} \\sin(${q1_deg}°) + ${a2} \\sin(${q1_deg}° + ${q2_deg}°) \\]</div>`;
+  output += `<div class='equation'>\\[ y = ${a1} \\sin(${x_deg}°) + ${a2} \\sin(${x_deg}° + ${y_deg}°) \\]</div>`;
 
 
   // Fase 3: Càlcul numèric detallat
 
-  let x1 = a1 * Math.cos(q1);
+  let x1 = a1 * Math.cos(x);
 
-  let x2 = a2 * Math.cos(q1 + q2);
+  let x2 = a2 * Math.cos(x + y);
 
-  let y1 = a1 * Math.sin(q1);
+  let y1 = a1 * Math.sin(x);
 
-  let y2 = a2 * Math.sin(q1 + q2);
+  let y2 = a2 * Math.sin(x + y);
 
 
   output += "<div class='equation'>Desglossant els càlculs:</div>";
 
-  output += `<div class='equation'>\\[ x_1 = a_1 \\cos(q_1) = ${a1} \\times \\cos(${q1_deg}°) = ${x1.toFixed(2)} \\]</div>`;
+  output += `<div class='equation'>\\[ x_1 = a_1 \\cos(q_1) = ${a1} \\times \\cos(${x_deg}°) = ${x1.toFixed(2)} \\]</div>`;
 
-  output += `<div class='equation'>\\[ x_2 = a_2 \\cos(q_1 + q_2) = ${a2} \\times \\cos(${q1_deg}° + ${q2_deg}°) = ${x2.toFixed(2)} \\]</div>`;
+  output += `<div class='equation'>\\[ x_2 = a_2 \\cos(q_1 + q_2) = ${a2} \\times \\cos(${x_deg}° + ${y_deg}°) = ${x2.toFixed(2)} \\]</div>`;
 
-  output += `<div class='equation'>\\[ y_1 = a_1 \\sin(q_1) = ${a1} \\times \\sin(${q1_deg}°) = ${y1.toFixed(2)} \\]</div>`;
+  output += `<div class='equation'>\\[ y_1 = a_1 \\sin(q_1) = ${a1} \\times \\sin(${x_deg}°) = ${y1.toFixed(2)} \\]</div>`;
 
-  output += `<div class='equation'>\\[ y_2 = a_2 \\sin(q_1 + q_2) = ${a2} \\times \\sin(${q1_deg}° + ${q2_deg}°) = ${y2.toFixed(2)} \\]</div>`;
+  output += `<div class='equation'>\\[ y_2 = a_2 \\sin(q_1 + q_2) = ${a2} \\times \\sin(${x_deg}° + ${y_deg}°) = ${y2.toFixed(2)} \\]</div>`;
 
 
   // Resultat final
