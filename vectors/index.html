@@ -34,7 +34,9 @@
             svg (Vector gràfic escalable) fa que les imatges es renderitzin en formes geomètriques en comptes de pixels per fer que les imatges i les formules no es pixelin. 
             */
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-            svg: { fontCache: 'global' }
+            svg: { fontCache: 'global' } //svg vol dir vectors gràfics escalables, es poden fer molt grans o molt petits.
+              // Les imatges poden ser de dos tipus, svg o mapa de bit. Els mapes de bit estàn fets de pixels i són els png o jpg o gif.
+              // Els svg són millors que els mapes de bit, perquè són fórmules matemàtiques i ens permeten fer dibuixos perfectes.
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
