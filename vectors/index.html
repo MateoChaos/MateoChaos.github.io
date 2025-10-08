@@ -42,10 +42,37 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+          /* Diferencia entre serif, sans-serif i monospace.
+           Model de caixes css o box model css, en el box model tenim una capa al voltant del contingut o contet que es diu padding, al voltant
+           del padding es troba el border i al voltant del border es troba al margin. Margin, border i padding són propietats css, (properties) que van seguides de :
+          i un valor o value en pixels. Tots el css són iguals, primer es posa el nom de la etiqueta html o tag a la cual volem donar-li un o diversos estils,
+          per exemple h2 o button o canvas... Després del tag es posa una clau de tipus "curly bracket" i a sota es posa 
+          propietat[:valor1]; 1 en la línia següent propietat2[:valor2];
+          si la propietat es color el valor es #333. El número #333 no és un número decimal, és un número hexadecmal de base 16.
+          Els valors hexadecimals van del 0 al 9, A(vol dir 10), B(vol dir 11), C(vol dir 12), D(vol dir 13), E(vol dir 14), F(vol dir 15)
+          Els codis dels colors tenen tres valors hexadecimals que van del 00 al FF, és a dir que tinc una cominació que va des del 
+          000000 al FFFFFF. Els dos primers digits son el color vermell, els dos següents són el color verd i els dos últims són blaus.
+          Recordar RGB (Red Green Blue). Tenim 256 elevat a la 3·16 milions 7000 mil colors diferents.
+          El color es pot expressar en hexadecimal o en rgb en decimal, per exemple #FF0000, és 256,0,0.
+          A vegades noms en angles com red o noms que puc troar amb color names html en google. h2 de la lin 60 controla el h2 de la linia 73.
+          i el #333 és el color gris, llavors que fa la línia 73? Fa que el títol sigui gris.
+          */
         h2 { color: #333; }
         input[type="number"] { width: 70px; margin-right: 10px; }
+          /*L'input és una etiqueta html que permet l'entrada de dades per l'usuari i al ser de tipus number només accepta números. El input és com una caixa de text per a que
+          escrigui l'usuari i tindra una amplada definida a la línia 60 amb css width és amplada en anglès i amb 70 píxels d'amplada puc escriure més d'un número d'ample,
+          i perquè deixo marge de 10 píxels a la dreta? Per tenir espai i no s'uneixi amb l'informació a l'entrada de l'usuari, sería un marge dintre de la caixa.
+          */
         button { padding: 8px 16px; margin-top: 10px; cursor: pointer; }
+          /* A aquesta línia esta la configuració del botó o els botons que està a la 114 i ens permet calcular quan clico.
+          Aquest botó té padding o marge interior, quan hi ha dos números, 8 píxels i 16 píxels, si hi ha un número significa que els marges estan pels 4 costats
+          i són iguals a aquests números, i hi ha dos números, el primer número es el mateix marge adalt i abaix, i el segon número es a la dreta i a la esquerra.
+          Enaquest cas té 8 píxels adalt i abaix y 16 a la dreta i esquerra. Cursor pointer vol dir que es vegi el cursor dins de la textbox.
+          */
         .result { margin-top: 20px; background-color: #f0f0f0; padding: 10px; border-radius: 5px; }
+          /* Result té un pnt davant per marcar que forma part d'una classe vol dir que es poden afectar diverses parts que tenen result.
+          #f0f0f0 es el color que té el fons. Els marges tenen 20 píxels adalt i abaix i 10 als costats y un bordre de 5 píxels.
+          */
         canvas { border: 1px solid #ccc; margin-top: 20px; background-color: #f9f9f9; }
         .teoria { background: #eef; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
     </style>
