@@ -20,26 +20,37 @@
 <!-- Script és una etiqueta molt important perquè ens indica que el que hi ha després és javascript. La línia anterior carrega Mathjax, que ens permet que surtin formes matemàtiques boniques-->
   </script>
 
-  <style> /*Aquesta part del codi es CSS, que serveix per donar estil als elements html.
+  <style> /* Aquesta part del codi es CSS, que serveix per donar estil als elements html.
     El codi CSS sempre té la següent estructura. Comença amb una etiqueta html que volem modificar i donar estil, a continuació 
     es posa una clau "curly bracket" que engloba una o diverses línies amb la següent estructura:
     propietat1:valor1; propietat2:valor2; etc. I s'acaba amb una clau tancada.
     Per exemple la línia 30 modificarà el body que es troba més abaix a la línia 72. Quines son les propietats?
     font-family és la familia del tipus de lletra o font. Hi ha tres famílies de lletres: sans-serif que significa sense
     serifa. Les serifes són adornaments o remats de lletres. Les que tenen serifa s'anomenen serif. El tercer tipus és
-    monospace que significa que totes les lletres tenen el mateix ample i això és útil perquè el codi ho necessita.
-    */
+    monospace que significa que totes les lletres tenen el mateix ample i això és útil perquè el codi ho necessita. */
 
     body {
 
       font-family: Arial, sans-serif;
-
+/* La línia anterior busca lletra Arial per tot el que surti dins del body (línia 76) i si no la troba utilitza una lletra sense serifa
+      */
       margin: 20px;
-
+/* Margin és el marge interior. CSS té un model de caixa o box model en el que el contingut o content està envoltat pel padding i aquest
+      està envoltat pel border i aquest mateix està envoltat pel margin. Margin, padding i border són propietats CSS que puc aplicar a
+      diferents etiquetes o tags html. Després de la propietat hi ha un valor en píxels, a vegades hi ha dos valors en píxels i a vegades
+      tres valors. Si hi ha un valor s'aplica adalt, abaix, a la dreta i a la esquerra. Si hi ha dos valors s'aplica el primer adalt y 
+      abaix i el segon a la dreta i a la esquerra. Si hi ha tres valors s'aplica tres valors: el primer valor s'aplica adalt, el segon a la dreta i
+      a l'esquerra, el tercer abaix. Si hi ha quatre números, el primer número és el marge superior, el segón número és la dreta, el tercer abaix
+      i el quart a l'esquerra. Tot el body amb tot el contingut html visible per l'usuari amb paràgrafs, dibuixos (canvas), tindrà un marge de
+      20px per tots els costats i no queden les lletres o els dibuixos enganxats als límits de l'ordinador o del móbil.
+      */
     }
 
 
     .equation {
+      /* El punt que hi ha davant de equation és molt important perquè indica que es tracta de una classe class="equation" de moment no s'utilitza 147
+      i fa que les equacions tinguin 20px més que el body, només d'adalt i abaix i 0 a dreta i esquerra.
+      */
 
       margin: 20px 0;
 
