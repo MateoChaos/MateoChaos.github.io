@@ -116,6 +116,9 @@
   <div id="output"></div>
 
   <canvas id="robotCanvas" width="400" height="400"></canvas>
+  /* la línia 107 i 109 són espais buits, fets per divisors (trossos de codi) a la 107 li hem dit "output", que són les fórmules
+  que apareixeran "robotcanvas" és un altre divisor on apareixeran els dibuixos dels vectors.
+  */
 
 
 <script>
@@ -125,6 +128,8 @@ function calculateAngles() {
   // Agafar les dades introduïdes per l'usuari
 
   let a1 = parseFloat(document.getElementById('a1').value);
+  // let a1 crea un espai a la memòria per emmagatzemar el valor introduit per l'usuari (getElementById ('a1') agafa el valor de a1.
+  // parseFloat converteix el número en un floating point number (número decimal). Queda emmagatzemat el que introueix l'usuari a a1.
 
   let a2 = parseFloat(document.getElementById('a2').value);
 
