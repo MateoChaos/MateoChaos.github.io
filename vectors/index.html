@@ -81,19 +81,27 @@
           un borde al voltant del primer. Podríem posar margin-top d'una altra manera? margin: 20px 0 0 0;. Ser que aquest color de fons es
           gris, perquè aumento de la mateixa manera i amb el mateix número rgb. Com podría fer el background-color d'una altra manera?
           f9 es un número hexadecimal Multiplicar cada dígito de F9 hexadecimal  (F9)₁₆= (15 × 16^1) + (9 × 16^0), i en binari es 11111001.
-          El número 249 es decimal i si vull pasar-lo a binari, he de dividir entre 2 com vam aprendre a quart.
+          El número 249 es decimal i si vull pasar-lo a binari, he de dividir entre 2 com vam aprendre a quart. Si la base que volem transformar
+          es 64 o 32, hem d'utilitzar més lletres de l'alfabet.
   
           */
         .teoria { background: #eef; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+          /* El punt davant de teoria es una classe, està a la línia 100 i és un divisor, un tros de codi que funciona independent i que
+          tindrà les característiques de la línia 100, que són: color grisós, marge interior, radi a les cantonades i un marge per sota.
+          */
     </style>
 </head>
 <body>
     <h1>Suma de Vectors Nàutics: Vaixell, Vent i Corrent</h1>
+      /* h1 és la capçalera i té tamany de títol d'apartat molt gran, h2 és més petit, fins a h6 que és el mínim.
+      */
 
 
 <div class="teoria">
     <h2>Recordatori Teòric</h2>
     <p>Per un vector de mòdul $V$ i rumb $\theta$ (en graus):</p>
+      <!-- Els dólars ($) dintre del paràgraf fa que els símbols matemàtics s'expressin en el tipus de lletra MathJax que és un tipus
+      de LaTeX, si volem lletres gregues hem de posar el nom en anglès amb una barra inclinada (\) abans-->
     <ul>
         <li>$\theta_{rad} = \theta \cdot \pi / 180$</li>
         <li>Component horitzontal (X): $V_x = V \cdot \sin(\theta_{rad})$</li>
