@@ -71,7 +71,7 @@
   <div>
 
     <label for="a1">Longitud del primer braç (a₁):</label>
-
+<!-- label és una etiqueta per indicar que s'ha de posar un input-->
     <input type="number" id="a1" value="1" step="0.1"><br><br>
 
 
@@ -108,10 +108,12 @@ function calculatePosition() {
   let a1 = parseFloat(document.getElementById('a1').value);
 
   let a2 = parseFloat(document.getElementById('a2').value);
+  // let q1_deg = parseFloat(document.getElementById('q1').value); //Graus
+  // let q2_deg = parseFloat(document.getElementById('q2').value); //Graus
 
-  let x = parseFloat(document.getElementById('x').value);
+  let x = parseFloat(document.getElementById('x').value); // Metres
 
-  let y = parseFloat(document.getElementById('y').value);
+  let y = parseFloat(document.getElementById('y').value); // Metres
 
 
   // **Mostrar els contenidors de sortida**
@@ -119,6 +121,7 @@ function calculatePosition() {
   document.getElementById('output').style.display = 'block';
 
   document.getElementById('robotCanvas').style.display = 'block';
+  //Aquest contenidors només sortiràn si l'usuari clica a un botó que està a la línia 84 que activa a la 95 i aquesta activa la 112 i 113.
 
 
   // Fase 1: Fórmules
