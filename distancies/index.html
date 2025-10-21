@@ -10,7 +10,7 @@
 
 <title>Problema de navegació Tarifa Ceuta (didactic detallat)</title>
 
-script
+<script>
 
 window. MathJax-1
 
@@ -18,17 +18,26 @@ tex: (inlineMath: [['S', $'], [', display Math: [['$5/55/11).
 
 svg: (fontCache: 'global')
 
-</script>
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
 <style>
-
+/* La línia 34 diu que tot el text del html que està en el body agafi el tipus de lletra arial, si no troba arial, agafa lletra
+  Helvetica i si no el troba, agafa qualsevol lletra de tipus sans-serif, sense serifa o sense adornaments.
+  Margin de 20 pixels al voltant de tot el contingut per asegurarnos de separar contingut de tots quatre costats.
+  Line-height és l'espai vertical entre línies del text, que per defecte depèn del tipus de lletra i acostuma a ser 1,2 1,4,
+  significa que entre una línia i la següent hi ha una separació del 120% i el 140%. Nosaltres hem triat línies més separades un 170%.
+  El color 123 es un color hexadecimal i sempre té sis digits RRGGBB, sent cada lletra un número entre el 0 i el 9 o ABCDEF,
+  A(10), B(11), C(12), D(13), E(14), F(15). Quan veiem tres números estem veient un hexadecimal abreujat i realment 123 es #112233.
+  i aquest correspon al rgb17,34,51 en decimal, que es un blau fosc.*/
 body {font-family: Arial, Helvetica, sans-serif;margin:20px;line-height: 1.7;color:#123)
-
+/*La línia 36 canvia els títols grans (h1), mitjá (h2) i petits (h3) a un color blau fosc*/
 h1,h2,h3(color:#0b3d91)
-
-formula (background: #f7f7f9;padding: 12px;border-radius:5px;margin:10px 0;text-align:center)
+/*La línia 38 es una clase que afecta a la línia 202 on s'escriuen les fórmules matemàtiques i fa que les fórmules tinguin un color gris clar de fons
+  (background) un espai intern dintre de la caixa de la formula perquè no toqui els costats (padding), unes cantonades arrodonides (border-radius)
+      ,un espai vertical abans i després de la formula perquè no toqui els costats del 12 pixels (padding)*/
+.formula (background: #f7f7f9;padding: 12px;border-radius:5px;margin:10px 0;text-align:center)
 
 table{border-collapse:collapse;margin: 10px 0)
 
@@ -139,8 +148,17 @@ NM$$</div>
 
 <p class="note">Un grau de latitud és constant a tota la Terra i representa aproximadament 60
 
-milles nautiques (111 km) entre paral·lels, perquè les línies de latitud són paral·leles i equidistants. En canvi, un grau de longitud varia amb la latitud. A l'equador, un grau de longitud també correspon a unes 60 milles nautiques, però a mesura que ens acostem als pols, la distància entre dos meridians consecutius disminueix, ja que les línies de longitud convergeixen cap als pols, fins a trobar-se a zero a l'extrem nord i sud. Per calcular la distância real corresponent a un canvi de longitud en qualsevol latitud, hem de multiplicar la diferència de longitud per el factor\ (\cos(lat_mitjana)\). Així, encara que la diferència angular sigui la mateixa, la distància sobre la superfície terrestre depèn de la latitud, fent que un grau de longitud no sigui equivalent a un grau de latitud fora de l'equador. Aquesta correcció és essencial per obtenir distàncies precises quan es navega o es fa cartografia. </p>
-
+milles nautiques (111 km) entre paral·lels, perquè les línies de latitud són paral·leles i equidistants. 
+  En canvi, un grau de longitud varia amb la latitud. A l'equador, un grau de longitud també correspon a unes 60 milles nautiques, però a mesura
+  que ens acostem als pols, la distància entre dos meridians consecutius disminueix, ja que les línies de longitud convergeixen cap als pols,
+  fins a trobar-se a zero a l'extrem nord i sud. Per calcular la distância real corresponent a un canvi de longitud en qualsevol latitud, hem
+  de multiplicar la diferència de longitud per el factor\ (\cos(lat_mitjana)\). Així, encara que la diferència angular sigui la mateixa, la distància
+  sobre la superfície terrestre depèn de la latitud, fent que un grau de longitud no sigui equivalent a un grau de latitud fora de l'equador. 
+  Aquesta correcció és essencial per obtenir distàncies precises quan es navega o es fa cartografia.
+  
+  A Barcelona estic a 42 graus de latitud i per tant un segon de longitud seria cos de 42 milles=0,74 milles. Si vaig més cap al Nord a Islandia, la latitud de
+  60 graus i el cos de la latitud es 0,5 i vol dir que un segon de longitud serà mitja milla. En el pol nord o el pol sud, l'angle
+  de latitud es de 90 graus i el cos de 90 es 0, per tant tenim 0 milles. </p>
 <div class="step">Longitud a lat mitjana: S$1^\circ lon iota = 60 cos(35.95/^\circ) (approx 49.2 NMS $</div>
 
 <div class="step">Component Est-Oest: SSEW= \Delta Lon \times 49.2=0.2900 \times 49.2
@@ -183,7 +201,7 @@ rumb.</p>
 
 <h3>Formules generals</h3>
 
-<div class="formula forall SSu = s sin\theta, \quad v = s cos\theta$$
+<div class="formula" forall SSu = s sin\theta, \quad v = s cos\theta$$
 
 On $s$ és la velocitat vector i $\thetas el rumb en graus.</div>
 
