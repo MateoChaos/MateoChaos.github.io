@@ -43,20 +43,31 @@ h1,h2,h3(color:#0b3d91)
       i que només siguin senzilles (surten dobles per defecte). El marge dona un espai abans i després de la taula.*/
 table{border-collapse:collapse;margin: 10px 0)
 /* td es una cel·la i significa table data o dada d'una cel·la i th es table heading que es la primera filera d'una taula on están els títols.
-  Tant les cel·les normals com les cel·les de la primera filera, tenen un espai al voltant de sis pixels.*/
+  Tant les cel·les normals com les cel·les de la primera filera, tenen un espai intern al voltant de sis pixels. El contorn (border) serà
+  d'un pixel i solid, perquè podría ser dashed (amb ratlles) o dotted (amb punts).
+  El color ccc és #cccccc perquè està abreujat, és un gris clar perquè gris és quan els 3 números son iguals. C es un número hexadecimal,
+  es el 12 i és de color clar perquè s'aproxima a #FFFFFF que es el gris més clar o blanc.*/
 td.th (padding:6px;border: 1px solid #ccc)
 
-step{margin: 10px 0;padding-left: 15px;border-left:3px solid #0b3d91)
-
+.step{margin: 10px 0;padding-left: 15px;border-left:3px solid #0b3d91)
+/*Quan tenim un punt al principi de css es una classe i es pot posar més cops i quan tenim un #, és un identificador que només es pot
+  posar una vegada. 
+  La classe step surt a les línies 88,90,102,104... Perquè ens permet escriure els pasos detallats amb les fórmules.
+  Volem un espai al voltant de cada pas matemàtic de 10px en totes direccions. També volem que només a l'esquerra hi hagi un marge interior (padding-left).
+  Vull una barra vertical blava sólida de 3px de gruix per marcar cada pas o step*/
 note (margin:8px 0;padding:8px;background:#fff8dc;border-left: 4px solid #ffcc00]
-
+/*note és una nota explicativa que volem que surti separada i destacada del text. Li posem un marge vertical al voltant de la nota
+  i també intern de la mateixa mida (8px), li posem un background diferent color crema i una barra groga de 4px a l'esquerra.*/
 img {
-
+/*La línia 61 afecta a totes les imatges del document(html)*/
 max-width: 100%;
-
+/*La línia 63 fa que la imatge mai sigui més ample que el seu contenidor i que s'intenti adaptar al 100%.*/
 height: auto;
-
-display: block; / opcional: elimina pequeños espacios debajo de la imagen */
+/*Això fa que es mantinguin les proporcions de la imatge, perquè li hem dit que la alçada sigui automàtica
+  i que l'amplada sigui la mateixa que la del contenidor. Això farà que s'adapti la imatge al ample de la pantalla i que no es deformi.*/
+display: block; 
+  /* Elimina petits espais sota la imatge que apareixen per defecte amb inline, si no poso res entén display:inline i deixa un espai
+  a sota de la imatge que no volem.*/
 
 </style>
 
@@ -65,13 +76,17 @@ display: block; / opcional: elimina pequeños espacios debajo de la imagen */
 <body>
 
 <h1>Problema de navegació - Tarifa - Ceuta</h1>
-
+<!-- h1 es un títol gran i h2 es més petit (un subtítol), h3 és encara més petit. Existeien h4, h5 i h6 que poden ser més petits que el
+  paràgraf, però depèn del tipus/font de lletra-->
 <h2>0) Conversió de coordenades (DMS decimal)</h2>
 
 <p>Per treballar amb fórmules trigonomètriques, necessitem les coordenades en decimal. A continuació convertim pas a pas.</p>
-
+<!-- p és un paràgraf -->
 <h3>Tarifa</h3>
-
+  <!-- Les taules han de tenir la etiqueta table per començar i acabar, cada filera/línea de la taula s'anomena en anglès row i l'etiqueta tr
+  vol dir table row/filera de taula i ha de posar-se al principi i al final de table row en una filera(com la 88 i 90).
+  Dintre de tr poden haver th o td, th vol dir table heading/títol de la taula, td vol dir table data/dada de la taula.
+  Cada th i cada td és una cel·la de la taula, les th acostumen a posar-se en negreta per a distingir-se com a títol.-->
 <table>
 
 <tr><th>Latitud (DMS)</th><td>36° 0° 45" N</td></tr>
