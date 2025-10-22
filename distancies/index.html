@@ -18,7 +18,7 @@ tex: (inlineMath: [['S', $'], [', display Math: [['$5/55/11).
 
 svg: (fontCache: 'global')
 
-  </script>
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
@@ -31,31 +31,31 @@ svg: (fontCache: 'global')
   El color 123 es un color hexadecimal i sempre té sis digits RRGGBB, sent cada lletra un número entre el 0 i el 9 o ABCDEF,
   A(10), B(11), C(12), D(13), E(14), F(15). Quan veiem tres números estem veient un hexadecimal abreujat i realment 123 es #112233.
   i aquest correspon al rgb17,34,51 en decimal, que es un blau fosc.*/
-body {font-family: Arial, Helvetica, sans-serif;margin:20px;line-height: 1.7;color:#123)
+body {font-family: Arial, Helvetica, sans-serif;margin:20px;line-height: 1.7;color:#123}
 /*La línia 36 canvia els títols grans (h1), mitjá (h2) i petits (h3) a un color blau fosc*/
-h1,h2,h3(color:#0b3d91)
+h1,h2,h3 {color:#0b3d91}
 /*La línia 38 es una clase que afecta a la línia 202 on s'escriuen les fórmules matemàtiques i fa que les fórmules tinguin un color gris clar de fons
-  (background) un espai intern dintre de la caixa de la formula perquè no toqui els costats (padding), unes cantonades arrodonides (border-radius)
+  (background un espai intern dintre de la caixa de la formula perquè no toqui els costats (padding), unes cantonades arrodonides (border-radius)
       ,un espai vertical abans i després de la formula perquè no toqui els costats del 12 pixels (padding), un espai vertical abans i després de la caixa (margin)
   i que el text de la formua estigui dins de la caixa.*/
-.formula (background: #f7f7f9;padding: 12px;border-radius:5px;margin:10px 0;text-align:center)
+.formula {background: #f7f7f9;padding: 12px;border-radius:5px;margin:10px 0;text-align:center}
 /*A la línia 43 tenim els estils de la taula generals, que es troba a la línia 74, el Collapse fa que les línies de la taula no siguin dobles
       i que només siguin senzilles (surten dobles per defecte). El marge dona un espai abans i després de la taula.*/
-table{border-collapse:collapse;margin: 10px 0)
+table{border-collapse:collapse;margin: 10px 0}
 /* td es una cel·la i significa table data o dada d'una cel·la i th es table heading que es la primera filera d'una taula on están els títols.
   Tant les cel·les normals com les cel·les de la primera filera, tenen un espai intern al voltant de sis pixels. El contorn (border) serà
   d'un pixel i solid, perquè podría ser dashed (amb ratlles) o dotted (amb punts).
   El color ccc és #cccccc perquè està abreujat, és un gris clar perquè gris és quan els 3 números son iguals. C es un número hexadecimal,
   es el 12 i és de color clar perquè s'aproxima a #FFFFFF que es el gris més clar o blanc.*/
-td.th (padding:6px;border: 1px solid #ccc)
+td.th {padding:6px;border: 1px solid #ccc}
 
-.step{margin: 10px 0;padding-left: 15px;border-left:3px solid #0b3d91)
+.step{margin: 10px 0;padding-left: 15px;border-left:3px solid #0b3d91}
 /*Quan tenim un punt al principi de css es una classe i es pot posar més cops i quan tenim un #, és un identificador que només es pot
   posar una vegada. 
   La classe step surt a les línies 88,90,102,104... Perquè ens permet escriure els pasos detallats amb les fórmules.
   Volem un espai al voltant de cada pas matemàtic de 10px en totes direccions. També volem que només a l'esquerra hi hagi un marge interior (padding-left).
   Vull una barra vertical blava sólida de 3px de gruix per marcar cada pas o step*/
-note (margin:8px 0;padding:8px;background:#fff8dc;border-left: 4px solid #ffcc00]
+note {margin:8px 0;padding:8px;background:#fff8dc;border-left: 4px solid #ffcc00}
 /*note és una nota explicativa que volem que surti separada i destacada del text. Li posem un marge vertical al voltant de la nota
   i també intern de la mateixa mida (8px), li posem un background diferent color crema i una barra groga de 4px a l'esquerra.*/
 img {
@@ -68,7 +68,7 @@ height: auto;
 display: block; 
   /* Elimina petits espais sota la imatge que apareixen per defecte amb inline, si no poso res entén display:inline i deixa un espai
   a sota de la imatge que no volem.*/
-
+}
 </style>
 
 </head>
@@ -95,9 +95,9 @@ display: block;
 
 <tr><th>Longitud (DMS)</th><td>5° 36′ 20.16" W</td></tr>
 
-<div class="step">Per convertir a decimal: SSLat = 36+\frac{0) (60)+\frac{45)(3600)= 36.0125^\circ$$</div>
+<div class="step">Per convertir a decimal: SSLat = 36+ \frac{0}{60} + \frac{45}(3600)= 36.0125^\circ$$</div>
 
-<div class="step">I la longitud: SSLon = -(5+\frac{36) (60)+\frac{20.16)(3600}) = -5.6056^\circ$$</div>
+<div class="step">I la longitud: SSLon = -(5 +\frac{36}{60} + \frac{20.16}{3600}) = -5.6056^\circ$$</div>
 
 <h3>Ceuta</h3>
 
@@ -109,9 +109,9 @@ display: block;
 
 </table>
 
-<div class="step">Latitud en decimal: SSLat=35+\frac{53)(60)+\frac{17.88) (3600)-35.8883\circ$S</div>
+<div class="step">Latitud en decimal: SSLat=35+\frac{53}{60}+\frac{17.88} (3600)-35.8883\circ$S</div>
 
-<div class="step">Longitud en decimal: SSLon (5+\frac{18)(60)+(frac{56.16)(3600))= -5.3156^\circSS</div>
+<div class="step">Longitud en decimal: SSLon (5+\frac{18}{60}+(frac{56.16}{3600})= -5.3156^\circSS</div>
 
 <h2>1) Diferències angulars</h2>
 
@@ -123,9 +123,9 @@ display: block;
 
 <p>Convertim a radians, ja que trigonometria utilitza radians:</p>
 
-<div class="step">SS\Delta \varphi_(rad) = (-0.1242\times\frac{\pi) (180) = -0.002166 radSS</div>
+<div class="step">SS\Delta \varphi_(rad) = (-0.1242\times\frac{\pi} {180} = -0.002166 radSS</div>
 
-<div class="step">SS\Delta \lambda_(rad) = 0.2900 \times \frac{\pi) (180)=0.005061
+<div class="step">SS\Delta \lambda_(rad) = 0.2900 \times \frac{\p}) {180}=0.005061
 
 rad$$</div>
 
@@ -133,13 +133,13 @@ rad$$</div>
 
 <p>Haversine permet calcular distância sobre la superficie esférica de la Terra:</p>
 
-<div class="step">$$a = \sin^2\left(\frac{\Delta \varphi}{2}\right)\cos(Lat_(Tarifa} \frac{\pi) (180))\cos(Lat_(Ceuta) \frac{\pi}{180}) \sin^2\left(\frac{\Delta \lambda) {2}\right)$$</div>
+<div class="step">$$a = \sin^2\left(\frac{\Delta \varphi}{2}\right)\cos(Lat_{Tarifa} \frac{\pi} {180})\cos(Lat_(Ceuta) \frac{\pi}{180}) \sin^2\left(\frac{\Delta \lambda} {2}\right)$$</div>
 
 <div class="step">SSa \approx 3.39 \times 10^(-6)SS</div>
 
 <div class="step">SSc = 2\arcsin(\sqrt{a}) \approx 0.003567 rad$$</div>
 
-<div class="step">Convertim a milles nautiques: SSD_(NM) = \frac{6371\cdot c) {1.852)
+<div class="step">Convertim a milles nautiques: SSD_(NM) = \frac{6371\cdot c} {1.852}
 
 approx 15.945 NMSS</div>
 
@@ -147,20 +147,18 @@ approx 15.945 NMSS</div>
 
 <p>El rumb indica la direcció inicial cap a Ceuta:</p>
 
-<div class="step">$Sy = \sin(\Delta \lambda_(rad)) \cos(Lat_{Ceuta) \frac{\pi} {180})\approx
+<div class="step">$Sy = \sin(\Delta \lambda_(rad)) \cos(Lat_{Ceuta} \frac{\pi} {180})\approx
 
 0.00415S</div>
 
-<div class="step">SSx = \cos(Lat_{Tarifa) \frac{\pi}{180}) \sin(Lat_{Ceuta) \frac{\pi)(180))-\sin(Lat_(Tarifa) \frac{\pi}{180})\cos(Lat_{Ceuta) \frac{\pi}{180})\cos(\Delta \lambda_(rad)) \approx 0.0019$$</div>
+<div class="step">SSx = \cos(Lat_{Tarifa} \frac{\pi}{180}) \sin(Lat_{Ceuta} \frac{\pi}{180})-\sin(Lat_(Tarifa) \frac{\pi}{180})\cos(Lat_{Ceuta} \frac{\pi}{180})\cos(\Delta \lambda_(rad)) \approx 0.0019$$</div>
 
 <div class="step">$$\theta = \arctan2(y,x) \approx 117.79^\circ$$</div>
 <h2>4) Aproximació plana</h2>
 
 <p>Per veure-ho de manera geométrica simple:</p>
 
-<div class="step">Component Nord-Sud: SSNS = |\Delta Lat|\times 60 = 0.1242 \times 60 = 7.45)
-
-NM$$</div>
+<div class="step">Component Nord-Sud: SSNS = |\Delta Lat|\times 60 = 0.1242 \times 60 = 7.45\NM$$</div>
 
 <h2>Analitzant longitud vs latitud</h2>
 
@@ -183,13 +181,13 @@ milles nautiques (111 km) entre paral·lels, perquè les línies de latitud són
 
 \approx 14.27 NMSS</div>
 
-<div class="step">Distância total: $Sd = \sqrt (NS^2+EW^2} \approx 16.1 NMSS</div>
+<div class="step">Distância total: $Sd = \sqrt {NS^2+EW^2} \approx 16.1 NMSS</div>
 
 <h2>5) Temps de travessia</h2>
 
 <p>Temps distancia/velocitat:</p>
 
-<div class="step">SS=\frac{d_(NM)){V}=\frac{15.945) (6)=2.6575 h$$</div>
+<div class="step">SS=\frac{d_{NM}}{V}=\frac{15.945} (6)=2.6575 h$$</div>
 
 <p>Convertim hores decimals a h:m:s pas a pas:</p>
 
@@ -199,7 +197,7 @@ milles nautiques (111 km) entre paral·lels, perquè les línies de latitud són
 
 <div class="step">Minuts sencers: $SM = \lfloor 39.45 \rfloor = 39mSS</div>
 
-<div class="step">Segons: $5(39.45-39) \times 60 = 27sSS </ epsilon >
+<div class="step">Segons: $5(39.45-39) \times 60 = 27sSS </div >
 
 <div class="step">Temps final: $St2h;39m 27s$$</div>
 
@@ -209,7 +207,7 @@ milles nautiques (111 km) entre paral·lels, perquè les línies de latitud són
 
 <div class="step">Consum total: $$ z = 18 \times 2.6575 \approx 47.84 LSS</div>
 
-<div class="step">Cost: SSCost = 47.84 \times 1.425 \approx 68.17\\text{€)$$ </div>
+<div class="step">Cost: SSCost = 47.84 \times 1.425 \approx 68.17\\text{€}$$ </div>
 
 <h2>7) Vector de velocitat, corrent i vent (detall pas a pas)</h2>
 
@@ -219,9 +217,7 @@ rumb.</p>
 
 <h3>Formules generals</h3>
 
-<div class="formula" forall SSu = s sin\theta, \quad v = s cos\theta$$
-
-On $s$ és la velocitat vector i $\thetas el rumb en graus.</div>
+<div class="formula" forall>SSu = s sin\theta, \quad v = s cos\theta$$ On $s$ és la velocitat vector i $\thetas el rumb en graus. </div>
 
 <h3>Pas 1: Nau</h3>
 
@@ -229,15 +225,15 @@ On $s$ és la velocitat vector i $\thetas el rumb en graus.</div>
 
 <div class="step">Calcul component Est (u):<br>$$u_(nau) = 6 \times \sin(117.8°) \approx
 
-.3155</ div
+.3155</div>
 
-<step">Calcul del component Nord (v):<br>$$v_{nau) = 6 \times \cos(117.8°) \approx -2.80$$</div>
+<step">Calcul del component Nord (v):<br>$$v_{nau} = 6 \times \cos(117.8°) \approx -2.80$$</div>
 
 <h3>Pas 2: Corrent</h3>
 
 <p>Velocitat de la corrent Ss = 1.51 kn$, rumb $\theta = 120 deg * S :</p>
 
-<div class="step">$Su_{1.5 \times \sin(1201.30$$</div>
+<div class="step">$Su_\1.5 \times \sin\1201.30$$</div>
 <div class="step">$$v_(corrent) = 1.5 \times \cos(120°) \approx -0.75$$</div>
 
 <h3>Pas 3: Vent</h3>
@@ -246,13 +242,13 @@ On $s$ és la velocitat vector i $\thetas el rumb en graus.</div>
 
 <div class="step">$Su_(vent) = 12 \times \sin(150°) \approx 6.00$$</div>
 
-<div class="step">$$v_{vent) = 12 \times \cos(150°) \approx -10.39$$</div>
+<div class="step">$$v_(vent) = 12 \times \cos(150°) \approx -10.39$$</div>
 
 <h3>Pas 4: Suma de vectors</h3>
 
 <p>Sumem component a component per obtenir el vector resultant:</p>
 
-<div class="step">Component Est (u):<br>SSu_(res) = u_(nau) + u_{corrent) + u_{vent) = 5.31
+<div class="step">Component Est (u):<br>SSu_(res) = u_(nau) + u_{corrent} + u_{vent} = 5.31
 
 1.3 + 6 approx 12.61SS</div>
 
