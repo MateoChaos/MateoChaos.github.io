@@ -98,7 +98,11 @@ display: block;
 <div class="step">Per convertir a decimal: SSLat = 36+ \frac{0}{60} + \frac{45}(3600)= 36.0125^\circ$$</div>
 
 <div class="step">I la longitud: SSLon = -(5 +\frac{36}{60} + \frac{20.16}{3600}) = -5.6056^\circ$$</div>
-
+/*Un divisor (div) com el de la línia 98 i 100 es un tros de codi que té un sistema d'identificació que pot ser un ID, en comptes de class=
+  posaríem id= i en aquest segon cas només podria haver una sola vegada, per exemple id="step1" i no pot haver repetit "step1" en un altre divisor
+  perqué és una id, en canvi step pot anar repetit ja que no és una id sinó una classe. Recorda que en el codi css tenim un .step a la línia 52,
+  si tinguéssim "step1" com a identificador hauríem de posar a la línia 52 #step1.
+  Quina és la funció de la class i del identificador? La class el podem posar més d'un cop i és més general, i el id és un elemen únic.*/
 <h3>Ceuta</h3>
 
 <table>
@@ -108,7 +112,26 @@ display: block;
 <tr><th>Longitud (DMS)</th><td>5° 18° 56.16" W</ul></tr>
 
 </table>
-
+<!-- A continuació veiem diferents codis amb JavaScript emprant la biblioteca MathJax, el doble $$ serveix per avisar al navegador de que
+  a continuació el codi es MathJax i l'ha de renderitzar o visualitzar segons LaTeX que es el llenguatge matemàtic.
+  Anem a explicar els diferents símbols:
+  \frac{A}{B} significa que dividim A entre B
+  35,883^\circ significa ^(sombreret) elevat a i la barra inclinada circ (\circ) significa º o el símbol del grau.
+  Si poso \Delta és una delta majúscula que té forma de triangle
+  \Lambda és aquest símbol Λ que és una lletra grega que s'utilitza a matemàtiques per expressar la longitud.
+  \varphi és la lletra grega fi Φ i correspon a la latitud.
+  \times és el símbol de multiplicar x una mica més gran sense arribaar a ser una X majúscula
+  \pi és el símbol π 
+  \varphi_{rad} si posem una barra baixa vol dir subíndex  el posem entre claus el que volem que apareixi en subíndex, apareixerà la lletra
+  fi amb un subíndex amb la paraula rad, perquè volem expressar la latitud no en graus sino en radiants que es la unitat del sistema internacional (SI)
+  Si poso Lat_{(Tarifa)}, Tarifa serà un subíndex sota la paraula Lat
+  \text_{rad} permet escriure el text nomal rad dintre de una MathJax
+  $$a = \sin^2\left(\frac{\Delta \varphi}{2}\right)\cos(Lat_{Tarifa} \frac{\pi} {180})\cos(Lat_(Ceuta) \frac{\pi}{180}) \sin^2\left(\frac{\Delta \lambda} {2}\right)$$
+  sin^2 el sombreret es elevat a la 2, \left és per obrir paréntesis esquerra i\right és per tancar el paréntesi.
+  \approx és el símbol de doble titlla ≈ que significa aproximadament.
+  \arctan2(y,x) és un tipus especial de arctangent anomenta arctangent 2 i en comptes d'anar de 0º a 360º, es a dir de 0 a 2 pi radiants
+  que es com funciona la tan i la arctan normal. Com el robot no pot donar la volta completa i va entre pi i -pi és a dir apliquem la funció
+  arctangent 2 que funciona la meitat del cercle.-->
 <div class="step">Latitud en decimal: SSLat=35+\frac{53}{60}+\frac{17.88} (3600)-35.8883\circ$S</div>
 
 <div class="step">Longitud en decimal: SSLon (5+\frac{18}{60}+(frac{56.16}{3600})= -5.3156^\circSS</div>
