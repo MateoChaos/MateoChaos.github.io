@@ -27,7 +27,10 @@
 
 <table id="mesuresTable">
   <!-- La línia 23 és l'inici d'una taula, però li hem de posar una id, per qué? Podría ser per molts motius. Primer, amb un #mesuresTable {propietat1:valor1} podría modificar per exemple
-  -->
+  els marges de la taula.
+  Primer hauriem d'agafar la id amb un #mesuresTable{color:blue;margin:20px;}
+  A més a més de poder canviar l'estil de la taula amb un identificador a la línia 88, gràcies a getElementById, agafo l'identificador(mesuresTable) que abans no feia res, i el transformo
+  en una variable de tipus javascript constant perquè així aconseguim poder modificar-la i afegir una-->
   <tr>
     <th>#</th>
     <th>Latitud</th>
@@ -38,12 +41,15 @@
 
 <h3>Distàncies pas a pas</h3>
 <div id="distancies"></div>
-
+<!--A la línia 43, tinc un div que és un àrea identificada amb una id, però no visible per defecte per l'usuari, la puc fer visible amb codi javascript o css o una combinació que 
+  canvii la propietat visible a hidden o a la inversa-->
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 let mesures = [];
+  <!--La línia 50 és un array. Els [] sempre indiquen arrays o conjunts de dades. Ara l'array es buit, però es important definir-ho buit perquè es reservi un espai a la memoria del ordinador
+    per emmagatzemar diverses dades-->
 let map = L.map('map').setView([0,0], 2);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
@@ -51,6 +57,19 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let polyline = L.polyline([], {color:'red'}).addTo(map);
 
 function mesura() {
+  /*La funció mesura el primer que fa és una estructura condicional amb un if, que té un signe d'admiració !(significa negació).
+  if (!navigator.geolocation). El if és el condicional que comprova que el objecte navigator de la classe navigator té un métode anomenat geolocation està disponible en aquell navegador o no.
+  El punt entre navigator i geolocation és molt important, perquè és la sintaxi del punt o dot syntax, és a dir el unt separa l'objecte del métode que volem aplicar en aquest. El punt aplica l'acció.
+  Si el navegador no pot executar geolocation, haurà de alertar mitjançant un missatge.
+  El return el que fa és mostrar el missatge en pantalla.
+  Alert és una funció de javascript que mostra una finestra emergent amb un missatge per a l'usuari, és una funció molt senzilla perquè només té un argument. Els arguments és el que tenim
+  a dins dels paréntesis, si no tenim arguments tenim els paréntesis buits. L'únic argument és el text que volem mostrar a l'usuari. La finestreta emergent obliga a l'usuari a tancar-la.
+  S'utilitza per a missatges simples com avisos, errors, confirmacions... Hi han altres tipus de finestres emergents més modernes i potents que s'anomenen modals o finestres emergents modals.
+  Si hi ha geolocalització no surt la finestra, i s'executen la línia 77 i seguents.
+  Navigation. geolocation és una API(interfície de programació d'aplicacions) que ens dona la posició latitud i longitud de l'usuari. Aquesta aplicació té una funció principal que és
+  getCurrentPosition que significa obtenir la posició actual. Té 3 arguments el primer argument es diu success/éxit, el segon és error, i el tercer és options. Llavors la funció és
+  getCurrentPosition(success,error,position). El primer argument succes és un callback, és un sistema que es crida i que permet obtenir la posició i ho fem amb la funció => (fletxa) que
+  és una forma molt ràpida d'escriure function tenen una sintàxi simplificada i no utilitza la paraula this per referir-se a elles mateixes i ocupen menys espai.*/
   const estat = document.getElementById("estat");
   estat.textContent = "🔍 Obtenint GPS amb precisió alta...";
 
