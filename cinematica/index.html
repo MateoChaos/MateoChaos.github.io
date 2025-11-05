@@ -31,6 +31,23 @@
     <style>
         /* ===== COLORS & ROOT VARIABLES ===== */
         :root{
+            /*Significa arrel en anglès, es una paraula que s'utilitza molt en el món informàtic, per exemple el linux, que es un sistem operatiu alternatiu i millor que el windows.
+            En aquest cas root significa l'element significa el document arrel del html, aquest és el propi html.
+            Antigament es deia html {propietat: valor}, però es fa servir "root{--variable:valor}" perquè té una prioritat més alta que html. 
+            Perquè  tots els estils estiguin dintre de root afectaran a tota la pagina web html. Perque "---variable" es una variable css global que puc utilitzar varies vegades.
+            Aquestes variables s'anomenen variables css personalitzades, o custom properties.
+            Per exemple la variable primary és un color que surt diverses vegades, per exemple en botons d'aquest mateix color en el fons, en els títols, en la capçalera principal.
+            Això permet tenir el codi més organitzat, perquè el canvio una vegada en el root i es canvia en diferents llocs a la vegada. També permet codis més coherents visualment, 
+            ja què es el mateix color, i es més fàcil d'ampliar, com el mode fosc i clar.
+            El primary es el color principal de la web, en aquest cas són tons foscos per capçeleres i fons
+            El secondary és un color secundari i s'aplica en enllaós i coses que li vols donar importància
+            El accent dona encara més importancia per alertes o botons importants.
+            Light es un color clar que serveix per fer fons i textos suaus
+            Muted es un color fosc per textos secundaris
+            Succes és un color verd que significa exit o que s'ha fet bé
+            Card-bg és el fons d'una targeta o contenidor.
+            Glass és un efecte de vidre translúcid, perquè 0.6 es un canal alpha o transparència que va després de rgb, que signficia el color
+            Shadow és una ombra suau per donar profunditat o un bloc al contenidor.*/
             --primary: #2c3e50;
             --secondary: #3498db;
             --accent: #e74c3c;
