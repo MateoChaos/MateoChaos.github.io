@@ -21,10 +21,10 @@
 <h2>Mesurador de Latitud i Longitud Avançat</h2>
 
 <label><b>Indica el lloc:</b></label>
-  /*Es una etiqueta per escriure que acompanya a un textbox o caixa de text definida per un input.
-  L'input de més abaix no accepta numbers només accepta text i té un text per defecte escrit a dintre, definit per la propietat placeholder.*/
+  <!--Es una etiqueta per escriure que acompanya a un textbox o caixa de text definida per un input.
+  L'input de més abaix no accepta numbers només accepta text i té un text per defecte escrit a dintre, definit per la propietat placeholder.-->
 <input id="ubicacioInput" type="text" placeholder="Ex: Punt A">
-  /*A continuació tenim tres botons que quan els cliquem s'executan les funcions de la línia function mesura (){instruccions...}
+  <!--A continuació tenim tres botons que quan els cliquem s'executan les funcions de la línia function mesura (){instruccions...}
   i els altres dos botons cridaran les funcions de javascript gràcies a la propietat o atribut onclick
   CSV significa comma separated values o valors separats per coma i és la forma més fàcil de guardar dades per exemple
   latittd, longitut
@@ -38,7 +38,11 @@
     Trk significa tracks o trajectes que són registres de camins o rutes seguits formats per una serie de punt (latitud,longitud ordenats
     cronologicament
     Dintre del trk hi ha una etiqueta <name> que hi ha el nom de la ruta, i a continuació hi ha una etiqueta <trktt>, abans hi ha un <trkseg>
-      que es una secuencia de trpt o track points que a vegades s'anomenen waypoints o punts de referencia, cada track point té una latitut i una longitut per exemple <trkpt lat="41.842" lon="1.936"> </trkpt>*/
+      que es una seqüència de trkpt o track points que a vegades s'anomenen waypoints o punts de referència, cada track point té una latitut i una longitut per exemple <trkpt lat="41.842" lon="1.936"> </trkpt>
+      Podem afegir més etiquetes com per exemple <ele> que significa elevació (elevation) que es l'alçada en metres del punt
+  GPX es un format obert, es a dir, que no hi ha cap empresa propietaria i es un format molt utilitzat per dispositius gps, per
+  programes que utilitzen mapes digitals o per apps que utilitzen rutes. Es compatible amb GIS que son sistemes d'informació geogràfica
+      -->
 <button onclick="mesura()">Mesura</button>
 <button onclick="exportCSV()">Exporta CSV</button>
 <button onclick="exportGPX()">Exporta GPX</button>
@@ -59,19 +63,46 @@
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- La línia 65 carrega leaflet.js i fa possible que funcionin els mapes.
+  Leaflet es una biblioteca javascript de codi obert. Codi obert vol dir que tothom té accés i pot veure internament el codi
+  Per exemple google maps no es de codi obert, sino que pertany a Google, es codi tancat o codi propietari que no només no puc veure
+  tot sino que tampoc el puc modificar (similar a libreoffice es gratis i de codi obert i inclou editor de text o editor de diapositives
+  o editor de full de càlcul que es diu calc, en canvi en microsoft office, concretament word, excel i powerpoint que son de codi tancat)
+  Leaflet fa mapes interactius compatibles amb el móbil
+  -->
 <script>
 let mesures = [];
+  /* let mesures significa crear una variable global perquè afecta a tot l'script que comença a la línia 73 i la inicialitzem amb un 
+  conjunt de valors [] que es coneix com array buit amb la intenció d'emmagatzemar lectures gps de latitut i longitut 
+  let map crea una instancia de mapa tipus leaflet i l'assigna a un element, al que tingui una id anomenada map que en aquest cas es un divisor o àrea buida de la pàgina que 
+  està a la línia 63 i que es el lloc on apareixerà el mapa. Si no hagués escrit la línia 63, la 81 generaría un error, perquè no trobaría
+  un lloc on posar el mapa.
+  El setView dona una vista inicial del mapa i les coordinades inicials son 0,0 que està situat en el Golf de Guinea i 2 es el zoom i el zoom 2
+  es molt allunyat, vista global (zoom 8, veuriem Catalunya, zoom 13 veuriem Martorell, zoom 0 veuriem tot el món i zoom 18 veuriem l'institut)
+  */
 let map = L.map('map').setView([0,0], 2);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  /*L.tileLayer, tile significa mosaic per tant es una capa de mosaic de openstreetmap. Openstreetmap es la versió de codi obert i lliure del
+  codi tancat de google maps. X i Y son les coordenades de latitut i longitut que ara són unes variables i Z es la variable del zoom.
+  */
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
+  /*addTo(map) afegeix les capes al mapa creat. Si la meva web té milers de peticions per segon pot tenir problemes perquè està anant a un 
+  servidor lliure de OpenStreetMap. Si passés això, podría descarregar OpenStreetMap en el nostre github perquè és un codi obert*/
 let polyline = L.polyline([], {color:'red'}).addTo(map);
+  /* Polyline dibuixarà diverses línies rectes i cadascuna correspondrà a una trajectoria i la dibuixarà de color vermell */
 
 function mesura() {
+  /* function mesura és una funció javascript que es farà la mesura de latitut i longitut, la crida un botó a la línia 46*/
   const estat = document.getElementById("estat");
+  /* estat es una variable però que té molts pocs valors constants i per això el definim com a const. Podrà ser diferents valors com
+  obtenint GPS, error, mesura guardada... Si aquesta variable no l'haguessim posat en un <div>, l'usuari veurà una línia en blanc */
   estat.textContent = "🔍 Obtenint GPS amb precisió alta...";
 
   if (!navigator.geolocation) {
+    /* Si no està disponible la geolocalització en el navegador (admiració significa negació) i el if es un condicional
+    ha de mostrar una finestra modal d'alerta.
+    La geolocalització és una API (interficie de programació d'aplicacions) que sempre solicita permís a l'usuari.*/
     alert("La geolocalització no és compatible amb aquest navegador.");
     return;
   }
