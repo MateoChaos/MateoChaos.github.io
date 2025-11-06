@@ -108,10 +108,29 @@ function mesura() {
   }
 
   navigator.geolocation.getCurrentPosition(
+    /*getCurrentPosition és una part de l'API de Geolocation, pot funcionar amb un únic argument (posició) però pot contenir fins a 3. 
+    El primer argument és el CallBack d'éxit, funció anónima exectuada quan el navegador obté la posició. Només rep un objete anomenat "pos".
+    El segon argument és el Callback d'error, funció anónima executada quan el navegador no obté la posició.
+    El tercer argument és el Callback d'opcions, permet regular com funciona el gps
+    La funió fletxa darrere de pos és la funció anónima perquè no escric la paraula function
+    "(pos)" té uns arguments que són coords.latitude i coords.longitude, emmagatzemats a les constants lat i lon respectivament
+    41,38 per latitud i 2,18 per longitud. Són variables numériques (o floating point numbers).
+    La constant ubicació agafa amb la funció getElemenetById el valor de la línia 26 introduit per l'usuari. Es un string o cadena de caràcters
+    mesures.push envia mesures dintre de l'array (conjunt de dades) que està composat per diversos objectes i cada objecte està format per longitut i longitut
+    Aquests 3 arguments són els utitlitzats per .push un métode (aplicat sintàcticament amb un punt endavant)
+    Funció anònima: sense nom, executable
+    Funció predefinida: amb nom, sense definir el nom dins del codi.
+    */
     (pos) => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
       const ubicacio = document.getElementById("ubicacioInput").value || `Punt ${mesures.length+1}`;
+      /*La || significa "o" (or) (s'ha de complir una o una altra condició, true) i & significa "i" (and) (les dues condicions han de ser true)
+      La línia de codi superior a aquesta indica que si l'usuari no introdueix un nombre a la posició, que el codi afeeixi un per defecte, que és Punt més el nombre
+      document.getElementById("ubicacioInput").value = "";
+      Aquesta línia esborra el text introduit a on es defineix el nom del punt
+      A la línia 63 tenim un divisor sense res, que representa  el valor de estat, que posteriorment canviarà 
+      La funció fletxa ens permet escriure menys línies de codi perquè ens permet ometre function*/
       mesures.push({lat, lon, ubicacio});
       document.getElementById("ubicacioInput").value = "";
       estat.textContent = "✅ Mesura registrada!";
@@ -120,6 +139,8 @@ function mesura() {
       actualitzaMapa();
     },
     (err) => {
+      /*(err) és el segon argument, el CallBack d'error
+      .textContent és una funció que altera el valor d'un string, substituint-lo amb un de nou.*/
       estat.textContent = "⚠️ Error GPS: " + err.message;
     },
     {
