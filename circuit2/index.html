@@ -14,17 +14,25 @@
 </head>
   <body>
     <h1>PWM: aconseguim una sortida analògica</h1>
-    <p>PWM significa Pulse Width Modulation, en català Modulació de l'Amplada del Pols.</p>
-    <p> A la següent imatge podem veure que si vull una sortida analògica en arduino per controlar un LED.</p>
-    <p>Necessito donar polsos molt rápidament en milisegons de cinc volts. Aquests polsos són d'ona quadrada, és a dir.</p>
-    <p>Canvien de zero a cinc volts de forma immediata. Els canvis són tan ràpids que l'ull humà no el veu.</p>
-    <p>Si fos un motor servo d'un braç robótic la inercia del motor faria</p>
-    <p>Si dono cin volts la meitat del temps pujant i baixant de zero a cin volts continuament en ona quadrada serà com si donés dos coma cinc volts</p>
-    <p>I el motor anirà a la meitat de la velocitat</p>
+    <p>PWM significa Pulse Width Modulation, en català Modulació de l'Amplada del Pols.
+     A la següent imatge podem veure que si vull una sortida analògica en arduino per controlar un LED.
+    Necessito donar polsos molt rápidament en milisegons de cinc volts. Aquests polsos són d'ona quadrada, és a dir.
+    Canvien de zero a cinc volts de forma immediata. Els canvis són tan ràpids que l'ull humà no el veu.
+    Si fos un motor servo d'un braç robótic la inercia del motor faria
+    Si dono cin volts la meitat del temps pujant i baixant de zero a cin volts continuament en ona quadrada serà com si donés dos coma cinc volts
+    I el motor anirà a la meitat de la velocitat </p>
+    <p>En la següent imatge podem veure com funciona internament PWM.</p>
+    <img src="PWM.png>
+      <p>A la imatge podem veure que amb 0 volts es mantindrà amb pols constant i a 5 volts es mantindra constant. Podem veure que el 50% de PWM vol dir que está fent
+      0-1-0-1-0-1... de forma que la amplada de 0 volts es a dir quan es igual a la amplada del 1 que es 5 volts. Això es un voltatge de 2,5V.</p>
+<p>Podem veure que el 25% de PWM vol dir que está fent 0-0-0-1-0-0-0-1-0-0-0-1... de forma que la amplada de 0 volts es a dir quan es igual a tres vegades
+      la amplada del 1 que es 5 volts. Això es un voltatge de 1,25V (5/4).</p>
+      <p>Podem veure que el 75% de PWM vol dir que está fent 0-0-0-1-0-0-0-1-0-0-0-1... de forma que la amplada de 0 volts es a dir quan es igual a una quarta part
+      la amplada del 1 que es 5 volts. Això es un voltatge de 1,25V (5/4).</p>
     <p>Pots veure una simulació de Blinking amb arduino en el <a href="https://www.tinkercad.com/things/1mROA3bCae1-blinking">següent enlla</a></p>
-    <iframe src="https://www.tinkercad.com/things/1mROA3bCae1-blinking"></iframe>
+    <iframe width="725" height="453" src="https://www.tinkercad.com/things/1mROA3bCae1-blinking"></iframe>
     
-      <pre><code class"language-javascript">
+      <pre><code class"language-arduino">
         
         // C++ code
 //
