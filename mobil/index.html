@@ -1,6 +1,53 @@
 <html>
+  <!-- MathJax per renderitzar fórmules LaTeX -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' },
+            startup: {
+                pageReady: function () {
+                    return MathJax.startup.defaultPageReady().then(function () {
+                        // Quan MathJax estigui llest, fem un primer càlcul
+                        // (es pot ometre aquí perquè hi ha un load event més endavant)
+                        // calculateAll();
+                    });
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
   <head>
     <title> Detector Móbil </title>
+    f=\frac{v}{\lambda}
+f=\frac{v}{\lambda}
+\\
+f= \text {freqüència (cicles/s)}
+\\
+v= \text {velocitat de la ona (m/s)}
+\\
+\lambda= \text { longitud d'ona (m)}
+\\
+\text{La fórmula anterior s'aplica a qualsevol ona. Per exemple, el so, les ones del mar i les ones electromagnètiques. Si són ones electromagnètiques la velocitat és c, que és la velocitat de la llum}
+\\
+\text{Si volem detectar un mòbil que emeti a 1800 MHz, quin diàmetre es necessari per construir un anell de Hertz? Serà la meitat de la longitud d'ona. Substituïm valors per tal de calcular el diàmetre aïllant la longitud d'ona.}
+\\
+D=2\lambda
+\\
+D= diàmetre
+\\
+\lambda = \text{longitud d'ona}
+\\
+\lambda=\frac{c}{f}=\frac{3·10^{8}\text{m/s}}{1800·10^{6}\text{cicles/s}}= 0,1666 \text{m}= 16,6666 \text{cm}
+\\
+f=\frac{1}{2\pi\sqrt{LC}}
+\\
+f=\text{frqüència (Hz)}
+
   </head>
   <body>
     <h1> Elements electrònics per detectar un mòbil</h1>
