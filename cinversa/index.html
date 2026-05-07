@@ -80,14 +80,14 @@
     <input type="number" id="a2" value="0.5" step="0.1"><br><br>
 
 
-    <label for="x">Angle del primer braç (x, en graus):</label>
+    <label for="x">Posició final (x, en metres):</label>
 
-    <input type="number" id="x" value="45" step="0.1"><br><br>
+    <input type="number" id="x" value="1.2" step="0.1"><br><br>
 
 
-    <label for="y">Angle del segon braç (y, en graus):</label>
+    <label for="y">Posició final (y, en metres):</label>
 
-    <input type="number" id="y" value="30" step="0.1"><br><br>
+    <input type="number" id="y" value="1.8" step="0.1"><br><br>
 
 
     <button onclick="calculateAngles()">Calcula la posició</button>
@@ -115,7 +115,23 @@ function calculateAngles() {
 
   let y = parseFloat(document.getElementById('y').value); // Metres
 
+let d = Math.sqrt(x*x+y*y);
+  //Calcula amb pitàgores la distància de la hipotenusa del braç robótic en posició x,y (la hipotenusa es la distància entre la base i la punta manipuladora del robot)
 
+  let q2 = Math.acos((d*d-a1*a1-a2*a2)/(2*a1*a2));
+  //Es el càlcul de l'angle 2
+  
+let k1 = a1+a2+Math.cos(q2);
+  let k2 = a2*Math.sin(q2);
+
+  let q1 = Math.atan2(y,x)-Math.atan2(k1,k2);
+  //Es el càlcul de l'angle 1
+  //q1 i q2 en el sistema internacional (S.I.) son radians, perquè he utilitzat x i y en metres i
+  //no em pot donar graus, perquè graus no es del sistema internacional. Malgrat tot, jo ho vull en graus
+  let q1_deg = q1*180/Math.PI;
+  let q2_deg = q2*180/Math.PI;
+  //q1_deg i q2_deg son els resultats de q1 y q2 en graus (degrees)
+  
   // **Mostrar els contenidors de sortida**
 
   document.getElementById('output').style.display = 'block';
@@ -128,7 +144,7 @@ function calculateAngles() {
 
   let output = "<div class='equation'>Les equacions per calcular la posició final del robot són:</div>";
 
-  output += "<div class='equation'>\\[ x = a_1 \\cos(q_1) + a_2 \\cos(q_1 + q_2) \\]</div>";
+  output += "<div class='equation'>\\[ q_ = a_1 \\cos(q_1) + a_2 \\cos(q_1 + q_2) \\]</div>";
 
   output += "<div class='equation'>\\[ y = a_1 \\sin(q_1) + a_2 \\sin(q_1 + q_2) \\]</div>";
 
