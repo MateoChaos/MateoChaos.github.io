@@ -142,157 +142,69 @@ let k1 = a1+a2+Math.cos(q2);
 
   // Fase 1: Fórmules
 
-  let output = "<div class='equation'>Les equacions per calcular la posició final del robot són:</div>";
-
-  output += "<div class='equation'>\\[ q_ = a_1 \\cos(q_1) + a_2 \\cos(q_1 + q_2) \\]</div>";
-
-  output += "<div class='equation'>\\[ y = a_1 \\sin(q_1) + a_2 \\sin(q_1 + q_2) \\]</div>";
-
-
-  // Fase 2: Substituir les variables
-
-  output += "<div class='equation'>Substituïm els valors:</div>";
-
-  output += `<div class='equation'>\\[ x = ${a1} \\cos(${x_deg}°) + ${a2} \\cos(${x_deg}° + ${y_deg}°) \\]</div>`;
-
-  output += `<div class='equation'>\\[ y = ${a1} \\sin(${x_deg}°) + ${a2} \\sin(${x_deg}° + ${y_deg}°) \\]</div>`;
-
-
-  // Fase 3: Càlcul numèric detallat
-
-  let x1 = a1 * Math.cos(x);
-
-  let x2 = a2 * Math.cos(x + y);
-
-  let y1 = a1 * Math.sin(x);
-
-  let y2 = a2 * Math.sin(x + y);
-
-
-  output += "<div class='equation'>Desglossant els càlculs:</div>";
-
-  output += `<div class='equation'>\\[ x_1 = a_1 \\cos(q_1) = ${a1} \\times \\cos(${x_deg}°) = ${x1.toFixed(2)} \\]</div>`;
-
-  output += `<div class='equation'>\\[ x_2 = a_2 \\cos(q_1 + q_2) = ${a2} \\times \\cos(${x_deg}° + ${y_deg}°) = ${x2.toFixed(2)} \\]</div>`;
-
-  output += `<div class='equation'>\\[ y_1 = a_1 \\sin(q_1) = ${a1} \\times \\sin(${x_deg}°) = ${y1.toFixed(2)} \\]</div>`;
-
-  output += `<div class='equation'>\\[ y_2 = a_2 \\sin(q_1 + q_2) = ${a2} \\times \\sin(${x_deg}° + ${y_deg}°) = ${y2.toFixed(2)} \\]</div>`;
-
-
-  // Resultat final
-
-  let x = x1 + x2;
-
-  let y = y1 + y2;
-
-
-  output += "<div class='equation'>Calculant els resultats numèrics totals:</div>";
-
-  output += `<div class='equation'>\\[ x = ${x.toFixed(2)} \\]</div>`;
-
-  output += `<div class='equation'>\\[ y = ${y.toFixed(2)} \\]</div>`;
-
-
-  // Mostrar el resultat
-
-  document.getElementById('output').innerHTML = output;
-
-  MathJax.typeset(); // Renderitzar MathJax per mostrar les fórmules correctament
-
-
-  // Fase 4: Part gràfica
-
-  let canvas = document.getElementById('robotCanvas');
-
-  let ctx = canvas.getContext('2d');
-
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // Netejar canvas
-
-
-  // Centre i escales
-
-  let centerX = canvas.width / 2;
-
-  let centerY = canvas.height / 2;
-
-  let scale = 80;
-
-
-  // Coordenades
-
-  let x1_screen = centerX + x1 * scale;
-
-  let y1_screen = centerY - y1 * scale;
-
-  let x2_screen = centerX + x * scale;
-
-  let y2_screen = centerY - y * scale;
-
-
-  // Dibuxar braç 1
-
-  ctx.beginPath();
-
-  ctx.moveTo(centerX, centerY);
-
-  ctx.lineTo(x1_screen, y1_screen);
-
-  ctx.strokeStyle = 'blue';
-
-  ctx.lineWidth = 5;
-
-  ctx.stroke();
-
-
-  // Dibuxar braç 2
-
-  ctx.beginPath();
-
-  ctx.moveTo(x1_screen, y1_screen);
-
-  ctx.lineTo(x2_screen, y2_screen);
-
-  ctx.strokeStyle = 'green';
-
-  ctx.lineWidth = 5;
-
-  ctx.stroke();
-
-
-  // Dibuxar els cercles als extrems
-
-  ctx.beginPath();
-
-  ctx.arc(centerX, centerY, 5, 0, 2 * Math.PI); // Base del braç
-
-  ctx.fillStyle = 'red';
-
-  ctx.fill();
-
-
-  ctx.beginPath();
-
-  ctx.arc(x1_screen, y1_screen, 5, 0, 2 * Math.PI); // Final del primer braç
-
-  ctx.fillStyle = 'red';
-
-  ctx.fill();
-
-
-  ctx.beginPath();
-
-  ctx.arc(x2_screen, y2_screen, 5, 0, 2 * Math.PI); // Final del segon braç
-
-  ctx.fillStyle = 'red';
-
-  ctx.fill();
-
-}
-
-</script>
+   let output = "<div class='equation'>Les equacions per calcular els angles són:</div>";
+            output += "<div class='equation'>\\[ q_2 = \\arccos\\left(\\frac{d^2 - a_1^2 - a_2^2}{2 a_1 a_2}\\right) \\]</div>";
+            output += "<div class='equation'>\\[ q_1 = \\arctan\\left(y, x\\right) - \\arctan\\left(\\frac{a_2 \\sin(q_2)}{a_1 + a_2 \\cos(q_2)}\\right) \\]</div>";
+
+            // Substituir les variables
+            output += `<div class='equation'>Substituint els valors:</div>`;
+            output += `<div class='equation'>\\[ d = \\sqrt{${x}^2 + ${y}^2} = ${d.toFixed(2)} \\]</div>`;
+            output += `<div class='equation'>\\[ q_2 = \\arccos\\left(\\frac{${d.toFixed(2)}^2 - ${a1}^2 - ${a2}^2}{2 \\times ${a1} \\times ${a2}}\\right) = ${q2_deg.toFixed(2)}° \\]</div>`;
+            output += `<div class='equation'>\\[ q_1 = \\arctan\\left(${y}, ${x}\\right) - \\arctan\\left(\\frac{${a2} \\sin(${q2_deg.toFixed(2)}°)}{${a1} + ${a2} \\cos(${q2_deg.toFixed(2)}°)}\\right) = ${q1_deg.toFixed(2)}° \\]</div>`;
+
+            document.getElementById('output').innerHTML = output;
+            MathJax.typeset();  // Renderitzar MathJax per mostrar les fórmules correctament
+
+            // Visualització gràfica
+            let canvas = document.getElementById('robotCanvas');
+            let ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Netejar canvas
+
+            // Centre i escales
+            let centerX = canvas.width / 2;
+            let centerY = canvas.height / 2;
+            let scale = 80;
+
+            // Coordenades
+            let x1 = a1 * Math.cos(q1);
+            let y1 = a1 * Math.sin(q1);
+            let x2 = x1 + a2 * Math.cos(q1 + q2);
+            let y2 = y1 + a2 * Math.sin(q1 + q2);
+
+            // Dibuixar braç 1
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(centerX + x1 * scale, centerY - y1 * scale);
+            ctx.strokeStyle = 'blue';
+            ctx.lineWidth = 5;
+            ctx.stroke();
+
+            // Dibuixar braç 2
+            ctx.beginPath();
+            ctx.moveTo(centerX + x1 * scale, centerY - y1 * scale);
+            ctx.lineTo(centerX + x2 * scale, centerY - y2 * scale);
+            ctx.strokeStyle = 'green';
+            ctx.lineWidth = 5;
+            ctx.stroke();
+
+            // Dibuixar els cercles als extrems
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 5, 0, 2 * Math.PI); // Base del braç
+            ctx.fillStyle = 'red';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(centerX + x1 * scale, centerY - y1 * scale, 5, 0, 2 * Math.PI); // Final del primer braç
+            ctx.fillStyle = 'red';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(centerX + x2 * scale, centerY - y2 * scale, 5, 0, 2 * Math.PI); // Final del segon braç
+            ctx.fillStyle = 'red';
+            ctx.fill();
+        }
+    </script>
 
 </body>
-
 </html>
+
